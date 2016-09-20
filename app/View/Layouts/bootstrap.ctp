@@ -12,6 +12,7 @@
     <?php echo $this -> Html -> css('bootstrap.min'); ?>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="./dropzone.js"></script>
 
     <!-- Le styles -->
     <style>
@@ -35,12 +36,22 @@
             </a>
           </div>
 
+
+          <ul class="nav navbar-nav">
+            <li>
+              <?= $this->Html->link('ファイル一覧ページ', ['action' => 'index']);?>
+            </li>
+            <li>
+              <?= $this->Html->link('アップロードページ', ['action' => 'add']); ?>
+            </li>
+          </ul>
+
         <ul class="nav navbar-nav navbar-right">
         <?php if ($currentUser) : ?>
             <li>
                     <?= $this->Html->link(
                         h($currentUser['email']),
-                        ['controller' => 'tweets', 'action' => 'account']
+                        ['controller' => 'posts', 'action' => 'index']
                     ); ?>
             </li>
 
