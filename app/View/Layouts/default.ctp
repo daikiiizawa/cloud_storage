@@ -34,6 +34,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
+
+
 </head>
 <body>
 	<div id="container">
@@ -61,3 +64,5 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
+
+
