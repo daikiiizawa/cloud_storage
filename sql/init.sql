@@ -17,12 +17,10 @@ ALTER TABLE `users` MODIFY `email` varchar(255) DEFAULT '' NOT NULL;
 ALTER TABLE `users` MODIFY `password` varchar(255) DEFAULT '' NOT NULL;
 
 
--- uploadsテーブル作成
+-- uploadsテーブルダミー作成
 CREATE TABLE `uploads` (
     `id` int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `file_name` varchar(50),
     `created` datetime DEFAULT NULL,
     `modified` datetime DEFAULT NULL
 );
-
-uploadテーブルにuser_idを付与
