@@ -3,7 +3,10 @@
 class UploadsController extends AppController {
 
     public function index() {
-        $this->set('uploads', $this->paginate());
+        $userId = $this->Auth->user('id');
+        $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
+        $files = $dir->read();
+        $this->set('files', $files);
     }
 
     // public function add() {
@@ -30,7 +33,6 @@ class UploadsController extends AppController {
         $file = $this->params->form['file'];
         $userId = $this->Auth->user('id');
         if ($this->request->is('post')) {
-            var_dump($file);
             $tempFile = $file['tmp_name'];
             $targetPath = WWW_ROOT.'files/upload/'.$userId;
             $targetFile = $targetPath.DS.$file['name'];

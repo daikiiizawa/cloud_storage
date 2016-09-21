@@ -20,6 +20,8 @@
  */
 
 App::uses('Controller', 'Controller');
+//フォルダーユーティリティーを読み込む
+App::uses('Folder', 'Utility');
 
 /**
  * Application Controller

@@ -9,32 +9,25 @@
 <h3>アップロードされたファイル一覧</h3>
 <table class="table table-bordered">
     <thead>
-        <th>ID</th>
+        <th>操作</th>
         <th>ファイル名</th>
-        <th>登録日</th>
     </thead>
 
     <tbody>
-    <?php foreach ($uploads as $upload) : ?>
+    <?php foreach ($files[1] as $file[1]) : ?>
     <tr>
-        <td style="width: 5%;"><?= h($upload['Upload']['id']); ?></td>
-        <td style="width: 55%;"><?= h($upload['Upload']['file_name']); ?></td>
-        <td style="width: 40%;"><?= h($upload['Upload']['created']); ?></td>
+        <td>
+            <input type="checkbox" value="1" id="PostPublished" />
+            削除
+        </td>
+        <td><?= h($file[1]); ?></td>
     </tr>
     <?php endforeach; ?>
     </tbody>
+    <input type="submit" value="選択したデータを削除">
 
 </table>
 
-
-
-
-<!-- ページネーション -->
-<div class="text-center" style="margin-bottom: 40px;">
-    <?= $this->paginator->prev('<< 前へ'); ?>&nbsp;
-    | <?= $this->paginator->numbers(); ?>&nbsp;|
-    <?= $this->paginator->next('次へ >>'); ?>
-</div>
 
 </div>
 </div>

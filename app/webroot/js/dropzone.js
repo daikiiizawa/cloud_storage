@@ -119,7 +119,7 @@
       withCredentials: false,
       parallelUploads: 2,
       uploadMultiple: false,
-      maxFilesize: 256,
+      maxFilesize: 1,// 256,
       paramName: "file",
       createImageThumbnails: true,
       maxThumbnailFilesize: 10,
@@ -142,7 +142,7 @@
       dictDefaultMessage: "ドラッグ&ドロップするか、クリックでファイルを選択して下さい",
       dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
       dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
-      dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+      dictFileTooBig: "1ファイルの上限は {{maxFilesize}}MiBです. File is too big ({{filesize}}MiB).",
       dictInvalidFileType: "You can't upload files of this type.",
       dictResponseError: "Server responded with {{statusCode}} code.",
       dictCancelUpload: "Cancel upload",
@@ -154,7 +154,9 @@
         return done();
       },
       init: function() {
-        return noop;
+        this.on("success", function(file, messageOrDataFromServer, myEvent) {
+          window.setTimeout(function() {window.location.href = "index"; alert("アップロード完了しました."); }, 1000);
+        });
       },
       forceFallback: false,
       fallback: function() {
