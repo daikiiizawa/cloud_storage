@@ -61,4 +61,22 @@ class UploadsController extends AppController {
         }
 
     }
+
+    public function download($file_name = null) {
+        $userId = $this->Auth->user('id');
+        // viewを使用しない
+        $this->autoRender = false;
+
+        if (strlen($file_name) == mb_strlen($file_name)) {
+            // ファイルがcake/app/webroot/files以下にあるとき
+            $file_path = 'webroot/files/upload/'.$userId.DS.$file_name;
+            // response->file()でダウンロードもしくは表示するファイルをセット
+            $this->response->file($file_path);
+            $this->response->download($file_name);
+        } else {
+            $this->Flash->error('ダウンロードは名前がすべて半角英数字で構成されるファイルのみ可能です');
+            $this->redirect(array('action' => 'index'));
+        }
+
+    }
 }

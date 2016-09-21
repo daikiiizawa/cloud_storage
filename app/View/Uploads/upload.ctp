@@ -8,21 +8,6 @@
     <?= '(残り'. round(100-$userfilesize/1000000,1). ' MB使用可能)'?>
 </p>
 
-<!-- 設定できない要因分析 -->
-<script>
-$(function(){
-Dropzone.autoDiscover = false;
-Dropzone.options.myAwesomeDropzone = {
-    paramName: "file",         // input fileの名前
-    parallelUploads: 1,            // 1度に何ファイルずつアップロードするか
-    maxFiles: 10,                      // 1度にアップロード出来るファイルの数
-    maxFilesize: 1,                // 1つのファイルの最大サイズ(1=1M)
-    dictFileTooBig: "ファイルが大きすぎます。 ({{filesize}}MiB). 最大サイズ: {{maxFilesize}}MiB.",
-    dictMaxFilesExceeded: "一度にアップロード出来るのは10ファイルまでです。",
-    };
-};
-</script>
-
 <!-- ドラッグアンドドロップエリア -->
 <?php if ($userfilesize <= 10000000) :?>
 
@@ -39,6 +24,9 @@ Dropzone.options.myAwesomeDropzone = {
     </strong>
 
 <?php endif ;?>
+
+<p style="color:red;padding-top: 10px;">※. 日本語を含むファイル名は一覧からダウンロードできません</p>
+<p style="color:red;">※. 一覧からダウンロード可能なファイルは、名前がすべて半角英数字で構成されるファイルのみです</p>
 
 </div>
 </div>

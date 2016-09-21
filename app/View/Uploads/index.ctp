@@ -31,7 +31,10 @@
             削除
         </td>
 
-        <td><?= h($file[1]); ?></td>
+        <td>
+            <?= h($file[1]); ?>
+            <?= $this->Html->link('(ダウンロード)', ['action' => 'download', $file[1]]); ?>
+        </td>
 
         <td>
             <?= round(filesize(WWW_ROOT.'files/upload/'.$currentUser['id'].'/'.$file[1])/1000,1). ' KB'; ?>
