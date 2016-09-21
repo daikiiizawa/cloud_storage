@@ -6,32 +6,32 @@ class UploadsController extends AppController {
         $userId = $this->Auth->user('id');
         $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
         $files = $dir->read();
-        $this->set('files', $files);
-    }
 
-    // public function add() {
-    //     if ($this->request->is('post')) {
-    //         $tmp = $this->request->data['Upload']['file']['tmp_name'];
-    //         if(is_uploaded_file($tmp)) {
-    //             $file_name = basename($this->request->data['Upload']['file']['name']);
-    //             $file = WWW_ROOT.'files'.DS.$file_name;
-    //             if (move_uploaded_file($tmp, $file)) {
-    //                 $this->Upload->create();
-    //                 $this->request->data['Upload']['file_name'] = $file_name;
-    //                 if ($this->Upload->saveAll($this->request->data)) {
-    //                     $this->Flash->success(__('アップロード完了'));
-    //                     $this->redirect(array('action' => 'index'));
-    //                 } else {
-    //                     $this->Flash->error(__('アップロード失敗'));
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+
+        $userfilesize = 0;
+        for ($i = 0; $i <= count($files[1])-1; $i++) {
+            $userfilesize += filesize(WWW_ROOT.'files/upload/'.$userId.'/'.$files[1][$i]);
+        }
+
+        $this->set('files', $files);
+        $this->set('userfilesize', $userfilesize);
+    }
 
     public function upload() {
         $file = $this->params->form['file'];
         $userId = $this->Auth->user('id');
+        $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
+        $files = $dir->read();
+
+
+        $userfilesize = 0;
+        for ($i = 0; $i <= count($files[1])-1; $i++) {
+            $userfilesize += filesize(WWW_ROOT.'files/upload/'.$userId.'/'.$files[1][$i]);
+        }
+
+        $this->set('files', $files);
+        $this->set('userfilesize', $userfilesize);
+
         if ($this->request->is('post')) {
             $tempFile = $file['tmp_name'];
             $targetPath = WWW_ROOT.'files/upload/'.$userId;
