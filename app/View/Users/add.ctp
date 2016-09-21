@@ -2,7 +2,6 @@
       <h2 class="text-center">新規登録</h2>
 
       <?= $this->Form->create('User', [
-                  'type'  => 'file',
                   'novalidate' => true,
                   'class' => 'well form-horizontal',
                   ]); ?>

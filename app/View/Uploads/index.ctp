@@ -41,7 +41,7 @@
     <?php endforeach; ?>
     </tbody>
 
-    <input type="submit" value="選択したデータを削除">
+    <input type="submit" value="選択したデータを削除" class="btn btn-primary">
 
 </table>
 

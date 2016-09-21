@@ -139,7 +139,7 @@
       hiddenInputContainer: "body",
       capture: null,
       renameFilename: null,
-      dictDefaultMessage: "ドラッグ&ドロップするか、クリックでファイルを選択して下さい",
+      dictDefaultMessage: "ファイルを置いてアップロード (1ファイル10MBまで形式制限なし)",
       dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
       dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
       dictFileTooBig: "1ファイルの上限は {{maxFilesize}}MiBです. File is too big ({{filesize}}MiB).",
