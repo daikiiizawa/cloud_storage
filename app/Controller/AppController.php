@@ -22,7 +22,7 @@
 App::uses('Controller', 'Controller');
 //フォルダーユーティリティーを読み込む
 App::uses('Folder', 'Utility');
-
+App::uses('File', 'Utility');
 /**
  * Application Controller
  *

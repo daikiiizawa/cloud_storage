@@ -23,9 +23,14 @@
 
     <tr>
         <td>
-            <input type="checkbox">
+            <?= $this->Form->create(NULL, [
+                'url' => ['action' => 'delete'],
+                'onsubmit'=>'return confirm("削除してよろしいですか？")',
+            ]); ?>
+            <input type="checkbox" name="deletefile[]" value="<?= h($file[1]); ?>">
             削除
         </td>
+
         <td><?= h($file[1]); ?></td>
 
         <td>
@@ -35,6 +40,7 @@
 
     <?php endforeach; ?>
     </tbody>
+
     <input type="submit" value="選択したデータを削除">
 
 </table>

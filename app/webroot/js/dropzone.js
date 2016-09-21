@@ -155,7 +155,7 @@
       },
       init: function() {
         this.on("success", function(file, messageOrDataFromServer, myEvent) {
-          window.setTimeout(function() {window.location.href = "index"; alert("アップロード完了しました."); }, 1000);
+          window.setTimeout(function() {alert("アップロード完了しました."); window.location.href = "index";}, 1000);
         });
       },
       forceFallback: false,

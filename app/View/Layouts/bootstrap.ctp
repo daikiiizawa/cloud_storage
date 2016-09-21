@@ -48,15 +48,16 @@
             </a>
           </div>
 
-
-          <ul class="nav navbar-nav">
-            <li>
-              <?= $this->Html->link('ファイル一覧ページ', ['action' => 'index']);?>
-            </li>
-            <li>
-              <?= $this->Html->link('アップロードページ', ['action' => 'upload']); ?>
-            </li>
-          </ul>
+          <?php if ($currentUser) : ?>
+            <ul class="nav navbar-nav">
+              <li>
+                <?= $this->Html->link('ファイル一覧ページ', ['action' => 'index']);?>
+              </li>
+              <li>
+                <?= $this->Html->link('アップロードページ', ['action' => 'upload']); ?>
+              </li>
+            </ul>
+          <?php endif ;?>
 
         <ul class="nav navbar-nav navbar-right">
         <?php if ($currentUser) : ?>
