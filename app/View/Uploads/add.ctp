@@ -5,24 +5,19 @@
 <?= $this->Html->link('ファイル一覧ページへ', ['action' => 'index']);?>
 
 <!-- アップロードフォーム -->
+<h3>ファイルアップロード画面</h3>
 
-<div class="uploads form">
-    <?= $this->Form->create('Upload', [
-            'type' => 'file',
-            'url' => [
-                'action' => 'add'
-            ]]); ?>
-
-    <fieldset>
-        <h3>ファイルアップロード画面</h3>
-        <?= $this->Form->file('file'); ?>
-    </fieldset>
-    <?= $this->Form->end('登録する');?>
-</div><!-- form -->
+<?= $this->Form->create('Upload', [
+        'type' => 'file',
+        'url' => [
+            'action' => 'add'
+        ]]); ?>
+<?= $this->Form->file('file'); ?>
+<?= $this->Form->end('登録する');?>
 
 </div>
-
+</div>
 
 <!-- ドロップゾーン -->
-<form action="file-upload.php" class="dropzone"></form>
+
 

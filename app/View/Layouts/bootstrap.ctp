@@ -8,11 +8,22 @@
       <?php echo $title_for_layout; ?></title>
 
     <!-- Bootstrap -->
-    <?php echo $this->Html->css('cake.app.css'); ?>
-    <?php echo $this -> Html -> css('bootstrap.min'); ?>
+    <?= $this->Html->css('cake.app.css'); ?>
+    <?= $this->Html->css('bootstrap.min'); ?>
+
+    <!-- dropzone -->
+    <?= $this->Html->css('basic'); ?>
+    <?= $this->Html->css('dropzone'); ?>
+    <?= $this->Html->script('dropzone'); ?>
+    <?= $this->Html->script('dropzone.min'); ?>
+    <?= $this->Html->script('dropzone-amd-module'); ?>
+    <?= $this->Html->script('dropzone-amd-module.min'); ?>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="./dropzone.js"></script>
+
+
 
     <!-- Le styles -->
     <style>
@@ -42,7 +53,7 @@
               <?= $this->Html->link('ファイル一覧ページ', ['action' => 'index']);?>
             </li>
             <li>
-              <?= $this->Html->link('アップロードページ', ['action' => 'add']); ?>
+              <?= $this->Html->link('アップロードページ', ['action' => 'upload']); ?>
             </li>
           </ul>
 
@@ -51,7 +62,7 @@
             <li>
                     <?= $this->Html->link(
                         h($currentUser['email']),
-                        ['controller' => 'posts', 'action' => 'index']
+                        ['controller' => 'uploads', 'action' => 'index']
                     ); ?>
             </li>
 

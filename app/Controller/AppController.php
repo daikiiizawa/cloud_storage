@@ -56,7 +56,7 @@ class AppController extends Controller {
                 ]
             ],
             'loginRedirect' => [
-                'controller' => 'posts',
+                'controller' => 'uploads',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
@@ -72,13 +72,14 @@ class AppController extends Controller {
     ];
 
 
-    public $helpers = array(
+    public $helpers = [
             'Session',
-            'Html' => array('className' => 'TwitterBootstrap.BootstrapHtml'),
-            'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
-            'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
-    );
+            // 'Html' => ['className' => 'TwitterBootstrap.BootstrapHtml'],
+            'Form' => ['className' => 'TwitterBootstrap.BootstrapForm'],
+            'Paginator' => ['className' => 'TwitterBootstrap.BootstrapPaginator'],
+    ];
     public $layout = 'bootstrap';
+
 
 }
 

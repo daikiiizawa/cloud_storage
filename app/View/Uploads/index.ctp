@@ -2,7 +2,7 @@
 <div class="col-md-12">
 
 <!-- ファイルアップページへ -->
-<?= $this->Html->link('アップロードページへ', ['action' => 'add']); ?>
+<?= $this->Html->link('アップロードページへ', ['action' => 'upload']); ?>
 
 <!-- ファイル一覧表示 -->
 

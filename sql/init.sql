@@ -25,4 +25,4 @@ CREATE TABLE `uploads` (
     `modified` datetime DEFAULT NULL
 );
 
-
+uploadテーブルにuser_idを付与
