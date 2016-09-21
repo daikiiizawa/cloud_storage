@@ -16,6 +16,7 @@ class UploadsController extends AppController {
         $this->set('userfilesize', $userfilesize);
     }
 
+    // Dropzoneでのアップロード
     public function upload() {
         $file = $this->params->form['file'];
         $userId = $this->Auth->user('id');
@@ -37,6 +38,31 @@ class UploadsController extends AppController {
             move_uploaded_file($tempFile, $targetFile);
             $this->Flash->success('アップロード成功');
             $this->redirect(array('action' => 'index'));
+        }
+    }
+
+    // 通常アップロード
+    public function add() {
+        $file = $this->params->form['file'];
+        $userId = $this->Auth->user('id');
+        $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
+        $files = $dir->read();
+
+        $userfilesize = 0;
+        for ($i = 0; $i <= count($files[1])-1; $i++) {
+            $userfilesize += filesize(WWW_ROOT.'files/upload/'.$userId.'/'.$files[1][$i]);
+        }
+
+        if (!$file['size'] == 0) {
+            $tempFile = $file['tmp_name'];
+            $targetPath = WWW_ROOT.'files/upload/'.$userId;
+            $targetFile = $targetPath.DS.$file['name'];
+            move_uploaded_file($tempFile, $targetFile);
+            $this->Flash->success('アップロード成功');
+            $this->redirect(array('action' => 'index'));
+        }else {
+            $this->Flash->error('アップロード失敗');
+            $this->redirect(array('action' => 'upload'));
         }
     }
 
