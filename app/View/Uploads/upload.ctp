@@ -14,7 +14,7 @@
     <b>(1)か(2)のどちらかでファイルをアップロードして下さい</b>
 
     <!-- ドロップゾーン -->
-    <p style="padding-top: 20px;">(1).ドラッグ&amp;ドロップでのファイルアップロード</p>
+    <h3 style="padding-top: 20px;"><strong>(1). ドラッグ&amp;ドロップでのファイルアップロード</strong></h3>
     <form
         action="upload"
         class="dropzone"
@@ -22,7 +22,7 @@
     </form>
 
     <!-- 通常アップロード -->
-    <p style="padding-top: 40px;">(2).選択してファイルアップロード</p>
+    <h3 style="padding-top: 40px;"><strong>(2). 選択してファイルアップロード</strong></h3>
     <form action="add" enctype="multipart/form-data" method="post">
         <input name="file" type="file" />
         <input type="submit" value="登録" class="btn btn-default" />
