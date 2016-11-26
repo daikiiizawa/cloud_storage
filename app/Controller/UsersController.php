@@ -9,6 +9,7 @@ class UsersController extends AppController {
     }
 
     public function add() {
+        $this->set('title_for_layout', 'ユーザー登録');
         if ($this->Auth->user()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
@@ -21,7 +22,7 @@ class UsersController extends AppController {
     }
 
     public function login() {
-
+        $this->set('title_for_layout', 'ログイン');
         if ($this->Auth->user()) {
             return $this->redirect($this->Auth->redirectUrl());
         }

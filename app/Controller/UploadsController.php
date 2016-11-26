@@ -3,6 +3,7 @@
 class UploadsController extends AppController {
 
     public function index() {
+        $this->set('title_for_layout', '一覧画面');
         $userId = $this->Auth->user('id');
         $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
         $files = $dir->read();
@@ -18,6 +19,7 @@ class UploadsController extends AppController {
 
     // Dropzoneでのアップロード
     public function upload() {
+        $this->set('title_for_layout', 'アップロード画面');
         $file = $this->params->form['file'];
         $userId = $this->Auth->user('id');
         $dir = new Folder(WWW_ROOT.'files/upload/'.$userId);
